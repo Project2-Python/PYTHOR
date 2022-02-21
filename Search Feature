@@ -1,0 +1,22 @@
+/*** find ***/
+#include <string.h>
+
+
+void editor_pencarian(){
+  char *cariapa = editorPrompt("Search: %s ( ESC to cancel)");
+  if(cariapa == NULL) return;
+  
+  int i;
+  for(i = 0; i < E.TotBaris; i++){
+    eBaris *baris  = &E.baris[i];
+    char *cocok = strstr(baris->beri, cariapa);
+    if(cocok){
+      E.cy = i;
+      E.cx = cocok - baris->beri;
+      E.barisakhir = E.TotBaris;
+      break;
+     }
+    }
+    
+    free(cariapa);
+  }
