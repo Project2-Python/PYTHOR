@@ -1,14 +1,12 @@
+#include <stdio.h>
+#include <conio.h>
+#include <string.h>
 #include "fungsi.h"
-#include <unistd.h>
+
 
 int main(){
+	
+	inputketext();
 
-    AktifRawMode();
-    
-    char kata;
-    while (read(STDIN_FILENO,&kata,1) == 1 && kata != 'q');
-    
-
-
-    return 0;
+	return 0;
 }
