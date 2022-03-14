@@ -3,7 +3,7 @@
 
 void exit_file(char FileName[30], char data[200]){
 	int InputKeyboard;
-    int Waktu_Exit = Waktu_Exit_;
+    	int Waktu_Exit = Waktu_Exit_;
 	while (IsPerubahan && Waktu_Exit > 0){
 		printf("PERHATIAN!! FILE BELUM DI SAVE.\n");
 		printf("TEKAN CTRL-Q SEBANYAK %d UNTUK KELUAR\n", Waktu_Exit);
@@ -14,6 +14,5 @@ void exit_file(char FileName[30], char data[200]){
 		}
 		Waktu_Exit--; 
 	}
-	
 	printf("TERIMAKASIH ");
 }
