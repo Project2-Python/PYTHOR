@@ -1,6 +1,6 @@
-                                                                                **# PYTHOR**
-                                                                          **## PYTHON TEXT EDITOR**
-                                                                          
+                                                                                # PYTHOR
+                                                                          ## PYTHON TEXT EDITOR
+                                                                         
                                                                           ## Project 2 Task
                                                                           
                                                          # Contributor
