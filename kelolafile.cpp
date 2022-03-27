@@ -15,7 +15,7 @@ void Create(){
 	
 	gotoxy(22,25); printf("\t\tMasukkan nama file : ");
 	scanf("%s",filename);
-	fp1 = fopen(strcat(filename,".txt"),"w");
+	fp1 = fopen(filename,"w");
 	fclose(fp1);
 	
 }
@@ -51,7 +51,7 @@ void EditFile(){
 	gotoxy(22,25); printf("\t\tNama file : ");
 	scanf("%s",filename);
 	
-	fedit = fopen(strcat(filename,".txt"),"r");
+	fedit = fopen(filename,"r");
 	if(fedit == NULL)
 	{
 		
@@ -82,7 +82,7 @@ void RemoveFile(){
 	
 	gotoxy(25,25); printf("\t\tMasukan Nama File :");
 	scanf("%s",filename);
-	status=remove(strcat(filename,".txt"));
+	status=remove(filename);
 	if(status!= 0){
 	gotoxy(25,27);	printf("\t\tFile Tidak Terhapus");
 	}else{
