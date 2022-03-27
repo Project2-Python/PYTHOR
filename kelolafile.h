@@ -3,7 +3,7 @@
 
 void Create();
 void SaveFile();
-void EditFile();
+void OpenFile();
 void RemoveFile();
 void RenameFile();
 

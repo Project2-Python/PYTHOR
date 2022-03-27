@@ -5,6 +5,29 @@
 #include "kelolafile.h"
 #include "tampilan.h"
 
+int getLastX(int baris){
+	int kolom, result;
+	result = 0;
+	for(kolom=0; kolom<MAXKOLOM; kolom++){
+		if(D.data[baris][kolom] == '\000' || D.data[baris][kolom] == -32){
+			break;
+		}
+		result++;
+	}
+	return result;
+}
+
+int getLastY(){
+	int baris, result;
+	result = 0;
+	for(baris=1; baris<MAXBARIS; baris++){
+		if(D.data[baris][0] == '\000'){
+			break;
+		}
+		result++;
+	}
+	return result;
+}
 
 void print(char Arr[MAXBARIS][MAXKOLOM]){
  int i, j;
@@ -45,11 +68,12 @@ void Delete(){
  if(E.destcord.X < 0){
   E.destcord.X = 0; 
   if(E.destcord.Y > 0){
-   E.destcord.X = MAXKOLOM+1;
    E.destcord.Y--;
+   E.destcord.X = getLastX(E.destcord.Y);
   }
  }
- E.kolom -= 1;
+ E.kolom = E.destcord.X;
+ E.baris = E.destcord.Y;
  D.data[E.baris][E.kolom]= NULL;
  printf(" ", '\b');
 }
@@ -61,38 +85,48 @@ void moveCursor(){
  char temp = getch();
  switch(temp){
   case 72: // UP
-   if(E.destcord.Y == 0){
-    E.destcord.Y = MAXBARIS;
-   } else {
+   if(E.destcord.Y > 0){
     E.destcord.Y--;
+    if(E.destcord.X > getLastX(E.destcord.Y)){
+    	E.destcord.X = getLastX(E.destcord.Y);
+	}
    }
    //E.baris = E.destcord.Y;
    break;
   case 75: // LEFT
    if(E.destcord.X == 0){
-    E.destcord.X == MAXKOLOM;
+   	if(E.destcord.Y > 0){
+   		E.destcord.Y--;
+   		E.destcord.X = getLastX(E.destcord.Y);
+	   }
    } else {
     E.destcord.X--;
    }
    //E.kolom = E.destcord.X;
    break;
   case 77:// RIGHT
-   if(E.destcord.X == MAXKOLOM){
-    E.destcord.X = 0;
+   if(E.destcord.X == getLastX(E.destcord.Y)){
+   	if(E.destcord.Y < getLastY()){
+    	E.destcord.X = 0;
+    	E.destcord.Y++;
+	   }
    } else {
     E.destcord.X++;
    }
    //E.kolom = E.destcord.X;
    break;
   case 80: // DOWN
-   if(E.destcord.Y == MAXBARIS){
-    E.destcord.Y = 0;
-   } else {
-    E.destcord.Y++;   	
+   if(E.destcord.Y < getLastY()){
+    E.destcord.Y++;
+    if(E.destcord.X > getLastX(E.destcord.Y)){
+    	E.destcord.X = getLastX(E.destcord.Y);
+	}	
    }
    //E.baris = E.destcord.Y;
    break;
  }
+ E.kolom = E.destcord.X;
+ E.baris = E.destcord.Y;
 }
 
 void setCursor(){
@@ -130,7 +164,9 @@ void initEditor(){
 }
 
 void keyProsess(){
- 
+ printf("\n%d %d", E.baris, E.kolom);
+ E.destcord.X = E.kolom;
+ E.destcord.Y = E.baris;
  E.hstdout = GetStdHandle(STD_OUTPUT_HANDLE);
  while(1){
   SetConsoleCursorPosition(E.hstdout, E.destcord);
@@ -138,14 +174,14 @@ void keyProsess(){
   if(D.data[E.baris][E.kolom] == -32){                       // Arrow
    moveCursor();
    
-  } else if(D.data[E.baris][E.kolom] == '\b'){              // Backspace
+  }else if(D.data[E.baris][E.kolom] == '\b'){              // Backspace
    Delete();
    
   }else if(D.data[E.baris][E.kolom] == '\x1b') {            // Ecscape
-  	  SaveFile();
-	  menu();
+  	SaveFile();
+	menu();
    
-  } else if(D.data[E.baris][E.kolom] == CTRL_S){
+  }else if(D.data[E.baris][E.kolom] == CTRL_S){
   	SaveFile();
   }
   else {

@@ -47,7 +47,8 @@ void menu(){
                 keyProsess();
                 break;
             case '2':
-            	EditFile();
+            	OpenFile();
+				keyProsess();
                 break;
             case '3':
                 RenameFile();

@@ -1,7 +1,8 @@
 #ifndef IOTEXT_H
 #define IOTEXT_H
-#define MAXBARIS 4
-#define MAXKOLOM 20
+#define MAXBARIS 40
+#define MAXKOLOM 80
+#include <windows.h>
 
 struct data{
  char data[MAXBARIS][MAXKOLOM];

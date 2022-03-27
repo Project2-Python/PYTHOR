@@ -25,7 +25,7 @@ void SaveFile(){
 	int i,j;
 	char arr[MAXBARIS][MAXKOLOM];
 	FILE *fp;
-	fp = fopen(filename,"r+");
+	fp = fopen(filename,"w");
 	if(fp == NULL){
 		printf("File tidak ada");
 	}
@@ -34,7 +34,16 @@ void SaveFile(){
 		GetData(arr);
 		for(i=0;i<MAXBARIS;i++){
 			for(j=0;j<MAXKOLOM;j++){
-				fprintf(fp,"%c",arr[i][j]);
+				if(arr[i][j]=='\033' || arr[i][j]=='\000' || arr[i][j]=='\023' || arr[i][j]==-32 || arr[i][j]=='\b'){
+					if(arr[i][j+1] == '\000'){
+						break;
+					}
+				} else {
+					fprintf(fp,"%c",arr[i][j]);
+				}
+			}
+			if(arr[i+1][0] == '\000'){
+				break;
 			}
 			fprintf(fp,"\n");
 		}
@@ -42,12 +51,11 @@ void SaveFile(){
 	fclose(fp);
 }
 
-void EditFile(){
+void OpenFile(){
 	
 	FILE *fedit;
 	int i, j;
 	char c;
-	
 	gotoxy(22,25); printf("\t\tNama file : ");
 	scanf("%s",filename);
 	
@@ -64,14 +72,23 @@ void EditFile(){
 	
 	system("cls");
 	while(!feof(fedit)){
-		fscanf(fedit, "%c", &D.data[E.baris][E.kolom]);
+		c = fgetc(fedit);
+		D.data[E.baris][E.kolom] = c;
 		printf("%c", D.data[E.baris][E.kolom]);
-		if(j==MAXKOLOM-1){
-			i++;
+		if(c == '\n'){
+			E.kolom = 0;
+			E.baris++;
+		} else {
+			E.kolom++;
 		}
-		j++;
+		if(E.kolom > MAXKOLOM){
+			E.kolom = 0;
+			E.baris++;
+		}
+		if(E.baris > MAXBARIS){
+			break;
+		}
 	}
-	keyProsess();
 	fclose(fedit);
 	
 }
