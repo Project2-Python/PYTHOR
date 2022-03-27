@@ -1,7 +1,9 @@
+#include <stdio.h>
+#include <conio.h>
+#include <windows.h>
 #include "IOText.h"
 #include "kelolafile.h"
 #include "tampilan.h"
-#include <conio.h>
 
 
 void print(char Arr[MAXBARIS][MAXKOLOM]){

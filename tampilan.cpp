@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <conio.h>
+#include <windows.h>
 #include "kelolafile.h"
 #include "tampilan.h"
 #include "IOText.h"

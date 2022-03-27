@@ -1,8 +1,5 @@
 #ifndef TAMPILAN_H
 #define TAMPILAN_H
-#include <stdio.h>
-#include <windows.h>
-
 
 void menu();
 void gotoxy(int x, int y);
