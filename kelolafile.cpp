@@ -8,7 +8,7 @@
 
 char filename[10];
 
-void Create(){
+void CreateFile(){
 	
 	FILE *fp1;
 	int i,j;
@@ -17,7 +17,8 @@ void Create(){
 	scanf("%s",filename);
 	fp1 = fopen(filename,"w");
 	fclose(fp1);
-	
+	system("cls");
+	keyProsess();
 }
 
 void SaveFile(){
@@ -49,48 +50,6 @@ void SaveFile(){
 		}
 	}
 	fclose(fp);
-}
-
-void OpenFile(){
-	
-	FILE *fedit;
-	int i, j;
-	char c;
-	gotoxy(22,25); printf("\t\tNama file : ");
-	scanf("%s",filename);
-	
-	fedit = fopen(filename,"r");
-	if(fedit == NULL)
-	{
-		
-		gotoxy(22,26); printf("\t\tFile tidak ada");
-		gotoxy(22,27); system("\t\tpause");
-		menu();
-		
-	} 
-	
-	
-	system("cls");
-	while(!feof(fedit)){
-		c = fgetc(fedit);
-		D.data[E.baris][E.kolom] = c;
-		printf("%c", D.data[E.baris][E.kolom]);
-		if(c == '\n'){
-			E.kolom = 0;
-			E.baris++;
-		} else {
-			E.kolom++;
-		}
-		if(E.kolom > MAXKOLOM){
-			E.kolom = 0;
-			E.baris++;
-		}
-		if(E.baris > MAXBARIS){
-			break;
-		}
-	}
-	fclose(fedit);
-	
 }
 
 void RemoveFile(){

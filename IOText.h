@@ -34,6 +34,7 @@ void Delete();
 void moveCursor();
 void setCursor();
 void initEditor();
+void OpenFile();
 void keyProsess();
 void GetData(char data[MAXBARIS][MAXKOLOM]);
 

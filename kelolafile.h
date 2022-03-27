@@ -1,9 +1,8 @@
 #ifndef KELOLAFILE_H
 #define KELOLAFILE_H
 
-void Create();
+void CreateFile();
 void SaveFile();
-void OpenFile();
 void RemoveFile();
 void RenameFile();
 

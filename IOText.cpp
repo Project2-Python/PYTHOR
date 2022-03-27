@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <conio.h>
+#include <string.h>
 #include <windows.h>
 #include "IOText.h"
 #include "kelolafile.h"
@@ -163,10 +164,54 @@ void initEditor(){
  E.kolom = 0;
 }
 
+void OpenFile(){
+	
+	FILE *fedit;
+	int i, j;
+	char c, filename[10];
+	gotoxy(22,25); printf("\t\tNama file : ");
+	scanf("%s", filename);
+	
+	fedit = fopen(filename,"r");
+	if(fedit == NULL)
+	{
+		
+		gotoxy(22,26); printf("\t\tFile tidak ada");
+		gotoxy(22,27); system("\t\tpause");
+		menu();
+		
+	} 
+	
+	
+	system("cls");
+	while(!feof(fedit)){
+		c = fgetc(fedit);
+		if(c == -1){
+			break;
+		}
+		D.data[E.baris][E.kolom] = c;
+		printf("%c", D.data[E.baris][E.kolom]);
+		if(c == '\n'){
+			E.kolom = 0;
+			E.baris++;
+		} else {
+			E.kolom++;
+		}
+		if(E.kolom > MAXKOLOM){
+			E.kolom = 0;
+			E.baris++;
+		}
+		if(E.baris > MAXBARIS){
+			break;
+		}
+	}
+	fclose(fedit);
+ 	E.destcord.X = E.kolom;
+ 	E.destcord.Y = E.baris;
+	keyProsess();
+}
+
 void keyProsess(){
- printf("\n%d %d", E.baris, E.kolom);
- E.destcord.X = E.kolom;
- E.destcord.Y = E.baris;
  E.hstdout = GetStdHandle(STD_OUTPUT_HANDLE);
  while(1){
   SetConsoleCursorPosition(E.hstdout, E.destcord);
