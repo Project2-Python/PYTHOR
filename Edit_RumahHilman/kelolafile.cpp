@@ -21,7 +21,7 @@ void SaveFile(){
 	int i,j;
 	char arr[MAXBARIS][MAXKOLOM];
 	FILE *fp;
-	fp = fopen(filename,"r+");
+	fp = fopen(filename,"w");
 	if(fp == NULL){
 		printf("File tidak ada");
 	}
@@ -41,12 +41,13 @@ void SaveFile(){
 void EditFile(){
 	
 	FILE *fedit;
+	int i, j;
 	char c;
 	
 	gotoxy(22,25); printf("\t\tNama file : ");
 	scanf("%s",filename);
 	
-	fedit = fopen(strcat(filename,".txt"),"r+");
+	fedit = fopen(strcat(filename,".txt"),"r");
 	if(fedit == NULL)
 	{
 		
@@ -54,17 +55,20 @@ void EditFile(){
 		gotoxy(22,27); system("\t\tpause");
 		menu();
 		
-	} else {
-		
-		while(!feof(fedit)){
-			D.data[i][j]=getch(fedit);
-    		
-		}
-		
-	}
+	} 
+	
+	i=0;
+	j=0;
 	system("cls");
+	while(!feof(fedit)){
+		fscanf(fedit, "%c", &D.data[i][j]);
+		printf("%c", D.data[i][j]);
+		if(j==MAXBARIS-1){
+			i++;
+		}
+		j++;
+	}
 	keyProsess();
 	fclose(fedit);
-	
 	
 }
