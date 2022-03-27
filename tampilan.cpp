@@ -31,7 +31,7 @@ void menu(){
         gotoxy(22,17);	printf("\t\t|                                                  |");
         gotoxy(22,18);	printf("\t\t+==================================================+");
         gotoxy(22,19);	printf("\t\t|                                                  |");
-        gotoxy(22,20);	printf("\t\t|              Made by Python Team (2)             |");
+        gotoxy(22,20);	printf("\t\t|                Made by Python Team               |");
         gotoxy(22,21);	printf("\t\t|                                                  |");
         gotoxy(22,22);	printf("\t\t+==================================================+");
         gotoxy(22,23);	printf("\t\tPilihan Menu: ");
@@ -149,9 +149,8 @@ void ExitScreen(){
 }
 
 void CommandLine(){
-	
-	system("cls");
-	gotoxy(0,40); printf("<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>\n");
-	
+	int y2 	= MAXBARIS ;
+	gotoxy(0,y2+1); 	printf("=======================================================================================================================\n");
+	gotoxy(0,y2+2); 	printf("Ctrl+S = Save \t ESC = Save & Exit \t ENTER = New Line");
 }
 

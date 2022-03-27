@@ -24,7 +24,8 @@ enum KeyInput{
 	CTRL_S = 19,
 	CTRL_N = 14,
 	CTRL_Q = 17,
-	CTRL_C = 3
+	CTRL_C = 3,
+	CTRL_I = 9
 	
 };
 

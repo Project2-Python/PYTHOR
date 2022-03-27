@@ -213,23 +213,24 @@ void OpenFile(){
 
 void keyProsess(){
  E.hstdout = GetStdHandle(STD_OUTPUT_HANDLE);
+ CommandLine();
  while(1){
   SetConsoleCursorPosition(E.hstdout, E.destcord);
   D.data[E.baris][E.kolom] = getch();
   if(D.data[E.baris][E.kolom] == -32){                       // Arrow
    moveCursor();
-   
-  }else if(D.data[E.baris][E.kolom] == '\b'){              // Backspace
+
+  } else if(D.data[E.baris][E.kolom] == '\b'){              // Backspace
    Delete();
-   
+
   }else if(D.data[E.baris][E.kolom] == '\x1b') {            // Ecscape
   	SaveFile();
 	menu();
-   
-  }else if(D.data[E.baris][E.kolom] == CTRL_S){
+
+  } else if(D.data[E.baris][E.kolom] == CTRL_S){		//save
   	SaveFile();
-  }
-  else {
+  	
+  }else {
    insertion(D.data[E.baris][E.kolom]);                  // Input Data
    setCursor();
   }
