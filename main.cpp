@@ -1,12 +1,13 @@
 #include <stdio.h>
-#include <conio.h>
-#include <string.h>
-#include "fungsi.h"
-
+#include "tampilan.h"
+#include "IOText.h"
 
 int main(){
+		
+		initEditor();
+		//LoadingScreen();
+		menu();
 	
-	inputketext();
-
 	return 0;
+	
 }
