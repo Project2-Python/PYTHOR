@@ -10,6 +10,8 @@
 void Create();
 void SaveFile();
 void EditFile();
+void RemoveFile();
+void RenameFile();
 
 #endif
 

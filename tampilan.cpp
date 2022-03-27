@@ -47,10 +47,10 @@ void menu(){
             	EditFile();
                 break;
             case '3':
-                //copas
+                RenameFile();
                 break;
             case '4':
-                //reaname
+                RemoveFile();
                 break;
             case '5':
                 documentation();

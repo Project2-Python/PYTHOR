@@ -21,7 +21,7 @@ void SaveFile(){
 	int i,j;
 	char arr[MAXBARIS][MAXKOLOM];
 	FILE *fp;
-	fp = fopen(filename,"w");
+	fp = fopen(filename,"r+");
 	if(fp == NULL){
 		printf("File tidak ada");
 	}
@@ -57,13 +57,12 @@ void EditFile(){
 		
 	} 
 	
-	i=0;
-	j=0;
+	
 	system("cls");
 	while(!feof(fedit)){
-		fscanf(fedit, "%c", &D.data[i][j]);
-		printf("%c", D.data[i][j]);
-		if(j==MAXBARIS-1){
+		fscanf(fedit, "%c", &D.data[E.baris][E.kolom]);
+		printf("%c", D.data[E.baris][E.kolom]);
+		if(j==MAXKOLOM-1){
 			i++;
 		}
 		j++;
@@ -71,4 +70,43 @@ void EditFile(){
 	keyProsess();
 	fclose(fedit);
 	
+}
+
+void RemoveFile(){
+	FILE *fp;
+	int status;
+	
+	gotoxy(25,25); printf("\t\tMasukan Nama File :");
+	scanf("%s",filename);
+	status=remove(strcat(filename,".txt"));
+	if(status!= 0){
+	gotoxy(25,27);	printf("\t\tFile Tidak Terhapus");
+	}else{
+	gotoxy(25,27);	printf("\t\tFile Terhapus");
+	}
+	
+}
+
+
+void RenameFile()
+{
+    
+    char oldName[100], newName[100];
+
+    
+    gotoxy(25,25); printf("\t\tMasukan nama file yang ingin diubah: ");
+    scanf("%s", oldName);
+
+    gotoxy(25,26); printf("\t\tMasukkan nama baru untuk file ini: ");
+    scanf("%s", newName);
+
+    if (rename(oldName, strcat(newName,".txt")) == 0)
+    {
+    gotoxy(25,27); printf("\t\tNama file berhasil diubah.\n");
+    }
+    else
+    {
+    gotoxy(25,27); printf("\t\tError! Tidak dapat mengganti nama file ini.\n");
+    }
+
 }
