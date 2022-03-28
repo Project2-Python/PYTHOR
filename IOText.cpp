@@ -80,7 +80,6 @@ void moveCursor(){
     	E.destcord.X = getLastX(E.destcord.Y);
 	}
    }
-   //E.baris = E.destcord.Y;
    break;
   case 75: // LEFT
    if(E.destcord.X == 0){
@@ -91,7 +90,6 @@ void moveCursor(){
    } else {
     E.destcord.X--;
    }
-   //E.kolom = E.destcord.X;
    break;
   case 77:// RIGHT
    if(E.destcord.X == getLastX(E.destcord.Y)){
@@ -102,7 +100,6 @@ void moveCursor(){
    } else {
     E.destcord.X++;
    }
-   //E.kolom = E.destcord.X;
    break;
   case 80: // DOWN
    if(E.destcord.Y < getLastY()){
@@ -111,7 +108,6 @@ void moveCursor(){
     	E.destcord.X = getLastX(E.destcord.Y);
 	}	
    }
-   //E.baris = E.destcord.Y;
    break;
  }
  E.kolom = E.destcord.X;
@@ -186,6 +182,7 @@ void openFile(){
 			E.kolom++;
 		}
 		if(E.kolom > MAXKOLOM){
+			printf("\n");
 			E.kolom = 0;
 			E.baris++;
 		}

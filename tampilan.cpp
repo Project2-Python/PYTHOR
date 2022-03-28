@@ -107,6 +107,7 @@ void documentation(){
 	gotoxy(22,24);	printf("|                                                                            |\n");
  	gotoxy(22,25);	printf("+============================================================================+\n");
  	gotoxy(22,26);  system(" pause");
+ 	menu();
 }
 
 void loadingScreen(){
