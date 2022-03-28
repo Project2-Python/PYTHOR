@@ -5,7 +5,7 @@
 #include "kelolafile.h"
 #include "tampilan.h"
 
-char filename[20];
+
 
 int getLastX(int baris){
 	int kolom, result;
@@ -154,7 +154,7 @@ void openFile(){
 	
 	FILE *fedit;
 	int i, j;
-	char c;
+	char c, filename[20];;
 	gotoxy(22,25); printf("\t\tNama file : ");
 	scanf("%s", filename);
 	
@@ -197,13 +197,12 @@ void openFile(){
 	fclose(fedit);
  	E.destcord.X = E.kolom;
  	E.destcord.Y = E.baris;
-	keyProsess();
+	keyProsess(filename);
 }
 
-void keyProsess(){
+void keyProsess(char filename[20]){
  char temp;
  E.hstdout = GetStdHandle(STD_OUTPUT_HANDLE);
-// commandLine();
  gotoxy(0,40); 	printf("=======================================================================================================================\n");
  gotoxy(0,41); 	printf("Ctrl+S = Save \t ESC = Save & Exit \t ENTER = New Line");
 

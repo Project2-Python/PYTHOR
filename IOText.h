@@ -36,7 +36,7 @@ void moveCursor();
 void setCursor();
 void initEditor();
 void openFile();
-void keyProsess();
+void keyProsess(char filename[20]);
 void getData(char data[MAXBARIS][MAXKOLOM]);
 
 #endif

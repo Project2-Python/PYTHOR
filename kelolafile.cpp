@@ -18,7 +18,7 @@ void createFile(){
 	fp1 = fopen(filename,"w");
 	fclose(fp1);
 	system("cls");
-	keyProsess();
+	keyProsess(filename);
 }
 
 void saveFile(char filename[20]){
@@ -64,7 +64,7 @@ void removeFile(){
 	}else{
 	gotoxy(22,27);	printf("\t\tFile Terhapus");
 	}
- 	gotoxy(22,28);  system(" pause");
+ 	gotoxy(22,28); printf("\t\t"); system("pause");
  	menu();
 	
 }
@@ -82,7 +82,7 @@ void renameFile()
     gotoxy(22,26); printf("\t\tMasukkan nama baru untuk file ini: ");
     scanf("%s", newName);
 
-    if (rename(oldName, strcat(newName,".txt")) == 0)
+    if (rename(oldName, newName) == 0)
     {
     gotoxy(22,27); printf("\t\tNama file berhasil diubah.\n");
     }
@@ -90,6 +90,6 @@ void renameFile()
     {
     gotoxy(22,27); printf("\t\tError! Tidak dapat mengganti nama file ini.\n");
     }
- 	gotoxy(22,28);  system(" pause");
+ 	gotoxy(22,28); printf("\t\t"); system("pause");
  	menu();
 }
