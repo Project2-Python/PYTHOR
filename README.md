@@ -1,6 +1,6 @@
 # PYTHOR
 
-<a href="https://github.com/Project2-Python/PYTHOR"><img src="https://i.ibb.co/1MN3jhB/Proyek-2-Python.png" alt="Proyek-2-Python" border="0"></a>
+<a href="https://github.com/Project2-Python/PYTHOR"><img src="https://i.ibb.co/WpTVyMz/Proyek-2-Python.png" alt="Proyek-2-Python" border="0"></a>
 
 PYTHOR is a simple text editor written in C by Python Team. Pythor is used to create, open, edit, save, rename, and delete text file.
 
