@@ -18,7 +18,6 @@ void createFile(){
 	fp1 = fopen(filename,"w");
 	fclose(fp1);
 	system("cls");
-//	initEditor();
 	keyProsess();
 }
 
@@ -57,14 +56,16 @@ void removeFile(){
 	FILE *fp;
 	int status;
 	char filename[20];
-	gotoxy(25,25); printf("\t\tMasukan Nama File :");
+	gotoxy(22,25); printf("\t\tMasukan Nama File :");
 	scanf("%s",filename);
 	status=remove(filename);
 	if(status!= 0){
-	gotoxy(25,27);	printf("\t\tFile Tidak Terhapus");
+	gotoxy(22,27);	printf("\t\tFile Tidak Terhapus");
 	}else{
-	gotoxy(25,27);	printf("\t\tFile Terhapus");
+	gotoxy(22,27);	printf("\t\tFile Terhapus");
 	}
+ 	gotoxy(22,28);  system(" pause");
+ 	menu();
 	
 }
 
@@ -75,19 +76,20 @@ void renameFile()
     char oldName[100], newName[100];
 	char filename[20];
     
-    gotoxy(25,25); printf("\t\tMasukan nama file yang ingin diubah: ");
+    gotoxy(22,25); printf("\t\tMasukan nama file yang ingin diubah: ");
     scanf("%s", oldName);
 
-    gotoxy(25,26); printf("\t\tMasukkan nama baru untuk file ini: ");
+    gotoxy(22,26); printf("\t\tMasukkan nama baru untuk file ini: ");
     scanf("%s", newName);
 
     if (rename(oldName, strcat(newName,".txt")) == 0)
     {
-    gotoxy(25,27); printf("\t\tNama file berhasil diubah.\n");
+    gotoxy(22,27); printf("\t\tNama file berhasil diubah.\n");
     }
     else
     {
-    gotoxy(25,27); printf("\t\tError! Tidak dapat mengganti nama file ini.\n");
+    gotoxy(22,27); printf("\t\tError! Tidak dapat mengganti nama file ini.\n");
     }
-
+ 	gotoxy(22,28);  system(" pause");
+ 	menu();
 }
