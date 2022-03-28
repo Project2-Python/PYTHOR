@@ -4,8 +4,7 @@
 
 int main(){
 	
-		//loadingScreen();
-		menu();
+	menu();
 	
 	return 0;
 	

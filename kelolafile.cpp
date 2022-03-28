@@ -7,7 +7,19 @@
 #include "tampilan.h"
 
 
-
+void createFile(){
+	
+	FILE *fp1;
+	int i,j;
+	char filename[20];
+	gotoxy(22,25); printf("\t\tMasukkan nama file : ");
+	scanf("%s",filename);
+	fp1 = fopen(filename,"w");
+	fclose(fp1);
+	system("cls");
+	keyProsess(filename);
+  
+}
 
 void saveFile(char filename[20]){
 	

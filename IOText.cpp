@@ -219,6 +219,7 @@ void keyProsess(char filename[20]){
 
   }else if(temp == '\x1b') {            // Ecscape
   	saveFile(filename);
+	memset(D.data, 0, sizeof(D.data));
 	menu();
 
   } else if(temp == CTRL_S){		//save
