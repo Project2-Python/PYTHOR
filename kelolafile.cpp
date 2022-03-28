@@ -18,6 +18,7 @@ void createFile(){
 	fp1 = fopen(filename,"w");
 	fclose(fp1);
 	system("cls");
+//	initEditor();
 	keyProsess();
 }
 

@@ -168,6 +168,8 @@ void openFile(){
 	
 	
 	system("cls");
+	E.baris = 0;
+	E.kolom = 0;
 	while(!feof(fedit)){
 		c = fgetc(fedit);
 		if(c == -1){
@@ -197,26 +199,30 @@ void openFile(){
 }
 
 void keyProsess(){
+ char temp;
  E.hstdout = GetStdHandle(STD_OUTPUT_HANDLE);
- commandLine();
+// commandLine();
+ gotoxy(0,40); 	printf("=======================================================================================================================\n");
+ gotoxy(0,41); 	printf("Ctrl+S = Save \t ESC = Save & Exit \t ENTER = New Line");
+
  while(1){
   SetConsoleCursorPosition(E.hstdout, E.destcord);
-  D.data[E.baris][E.kolom] = getch();
-  if(D.data[E.baris][E.kolom] == -32){                       // Arrow
+  temp = getch();
+  if(temp == -32){                       // Arrow
    moveCursor();
 
-  } else if(D.data[E.baris][E.kolom] == '\b'){              // Backspace
+  } else if(temp == '\b'){              // Backspace
    deleteChar();
 
-  }else if(D.data[E.baris][E.kolom] == '\x1b') {            // Ecscape
+  }else if(temp == '\x1b') {            // Ecscape
   	saveFile();
 	menu();
 
-  } else if(D.data[E.baris][E.kolom] == CTRL_S){		//save
+  } else if(temp == CTRL_S){		//save
   	saveFile();
   	
   }else {
-   insertion(D.data[E.baris][E.kolom]);                  // Input Data
+   insertion(temp);                  // Input Data
    setCursor();
   }
  }
