@@ -5,6 +5,8 @@
 #include "kelolafile.h"
 #include "tampilan.h"
 
+char filename[20];
+
 int getLastX(int baris){
 	int kolom, result;
 	result = 0;
@@ -152,7 +154,7 @@ void openFile(){
 	
 	FILE *fedit;
 	int i, j;
-	char c, filename[10];
+	char c;
 	gotoxy(22,25); printf("\t\tNama file : ");
 	scanf("%s", filename);
 	
@@ -215,11 +217,11 @@ void keyProsess(){
    deleteChar();
 
   }else if(temp == '\x1b') {            // Ecscape
-  	saveFile();
+  	saveFile(filename);
 	menu();
 
   } else if(temp == CTRL_S){		//save
-  	saveFile();
+  	saveFile(filename);
   	
   }else {
    insertion(temp);                  // Input Data

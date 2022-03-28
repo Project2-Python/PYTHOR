@@ -6,13 +6,13 @@
 #include "IOText.h"
 #include "tampilan.h"
 
-char filename[20];
+
 
 void createFile(){
 	
 	FILE *fp1;
 	int i,j;
-	
+	char filename[20];
 	gotoxy(22,25); printf("\t\tMasukkan nama file : ");
 	scanf("%s",filename);
 	fp1 = fopen(filename,"w");
@@ -22,7 +22,7 @@ void createFile(){
 	keyProsess();
 }
 
-void saveFile(){
+void saveFile(char filename[20]){
 	
 	int i,j;
 	char arr[MAXBARIS][MAXKOLOM];
@@ -56,7 +56,7 @@ void saveFile(){
 void removeFile(){
 	FILE *fp;
 	int status;
-	
+	char filename[20];
 	gotoxy(25,25); printf("\t\tMasukan Nama File :");
 	scanf("%s",filename);
 	status=remove(filename);
@@ -73,7 +73,7 @@ void renameFile()
 {
     
     char oldName[100], newName[100];
-
+	char filename[20];
     
     gotoxy(25,25); printf("\t\tMasukan nama file yang ingin diubah: ");
     scanf("%s", oldName);

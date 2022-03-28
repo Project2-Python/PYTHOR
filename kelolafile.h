@@ -2,7 +2,7 @@
 #define KELOLAFILE_H
 
 void createFile();
-void saveFile();
+void saveFile(char filename[20]);
 void removeFile();
 void renameFile();
 
