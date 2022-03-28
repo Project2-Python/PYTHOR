@@ -1,10 +1,10 @@
 #ifndef KELOLAFILE_H
 #define KELOLAFILE_H
 
-void CreateFile();
-void SaveFile();
-void RemoveFile();
-void RenameFile();
+void createFile();
+void saveFile();
+void removeFile();
+void renameFile();
 
 #endif
 

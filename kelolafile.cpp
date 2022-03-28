@@ -6,9 +6,9 @@
 #include "IOText.h"
 #include "tampilan.h"
 
-char filename[10];
+char filename[20];
 
-void CreateFile(){
+void createFile(){
 	
 	FILE *fp1;
 	int i,j;
@@ -21,7 +21,7 @@ void CreateFile(){
 	keyProsess();
 }
 
-void SaveFile(){
+void saveFile(){
 	
 	int i,j;
 	char arr[MAXBARIS][MAXKOLOM];
@@ -32,7 +32,7 @@ void SaveFile(){
 	}
 	else
 	{
-		GetData(arr);
+		getData(arr);
 		for(i=0;i<MAXBARIS;i++){
 			for(j=0;j<MAXKOLOM;j++){
 				if(arr[i][j]=='\033' || arr[i][j]=='\000' || arr[i][j]=='\023' || arr[i][j]==-32 || arr[i][j]=='\b'){
@@ -52,7 +52,7 @@ void SaveFile(){
 	fclose(fp);
 }
 
-void RemoveFile(){
+void removeFile(){
 	FILE *fp;
 	int status;
 	
@@ -68,7 +68,7 @@ void RemoveFile(){
 }
 
 
-void RenameFile()
+void renameFile()
 {
     
     char oldName[100], newName[100];

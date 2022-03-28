@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <conio.h>
 #include <string.h>
-#include <windows.h>
 #include "IOText.h"
 #include "kelolafile.h"
 #include "tampilan.h"
@@ -30,18 +29,7 @@ int getLastY(){
 	return result;
 }
 
-void print(char Arr[MAXBARIS][MAXKOLOM]){
- int i, j;
- for(i=0; i<MAXBARIS; i++){
-  for(j=0; j<MAXKOLOM; j++){
-   printf("%c", Arr[i][j]);
-  }
-  printf("\n");
- }
-}
-
-
-void GetData(char data[MAXBARIS][MAXKOLOM]){
+void getData(char data[MAXBARIS][MAXKOLOM]){
 	
 	int i,j;
 	for(i=0; i<MAXBARIS;i++){
@@ -63,7 +51,7 @@ void insertion(int key){
  }
 }
 
-void Delete(){
+void deleteChar(){
  --E.destcord.X;
  SetConsoleCursorPosition(E.hstdout, E.destcord);
  if(E.destcord.X < 0){
@@ -164,7 +152,7 @@ void initEditor(){
  E.kolom = 0;
 }
 
-void OpenFile(){
+void openFile(){
 	
 	FILE *fedit;
 	int i, j;
@@ -213,7 +201,7 @@ void OpenFile(){
 
 void keyProsess(){
  E.hstdout = GetStdHandle(STD_OUTPUT_HANDLE);
- CommandLine();
+ commandLine();
  while(1){
   SetConsoleCursorPosition(E.hstdout, E.destcord);
   D.data[E.baris][E.kolom] = getch();
@@ -221,14 +209,14 @@ void keyProsess(){
    moveCursor();
 
   } else if(D.data[E.baris][E.kolom] == '\b'){              // Backspace
-   Delete();
+   deleteChar();
 
   }else if(D.data[E.baris][E.kolom] == '\x1b') {            // Ecscape
-  	SaveFile();
+  	saveFile();
 	menu();
 
   } else if(D.data[E.baris][E.kolom] == CTRL_S){		//save
-  	SaveFile();
+  	saveFile();
   	
   }else {
    insertion(D.data[E.baris][E.kolom]);                  // Input Data

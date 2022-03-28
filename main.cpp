@@ -5,7 +5,7 @@
 int main(){
 		
 		initEditor();
-		//LoadingScreen();
+		//loadingScreen();
 		menu();
 	
 	return 0;

@@ -31,12 +31,12 @@ enum KeyInput{
 
 void print(char arr[MAXBARIS][MAXKOLOM]);
 void insertion(int key);
-void Delete();
+void deleteChar();
 void moveCursor();
 void setCursor();
 void initEditor();
-void OpenFile();
+void openFile();
 void keyProsess();
-void GetData(char data[MAXBARIS][MAXKOLOM]);
+void getData(char data[MAXBARIS][MAXKOLOM]);
 
 #endif

@@ -42,22 +42,22 @@ void menu(){
 
         switch(choice) {
             case '1':
-                CreateFile();
+                createFile();
                 break;
             case '2':
-            	OpenFile();
+            	openFile();
                 break;
             case '3':
-                RenameFile();
+                renameFile();
                 break;
             case '4':
-                RemoveFile();
+                removeFile();
                 break;
             case '5':
                 documentation();
                 break;
             case '6':
-            	ExitScreen();
+            	exitScreen();
                 exit(1);
                 break;
             default:
@@ -109,7 +109,7 @@ void documentation(){
  	gotoxy(22,26);  system(" pause");
 }
 
-void LoadingScreen(){
+void loadingScreen(){
 	
 	system("cls");
 	
@@ -130,25 +130,25 @@ void LoadingScreen(){
 	
 }
 
-void ExitScreen(){
+void exitScreen(){
 	
 	system("cls");
 	gotoxy(35,9); 	printf("              =======================");
 	gotoxy(35,11);	printf("              =======================");
-	Sleep(500); 
+	Sleep(300); 
 	gotoxy(35,10); 	printf("                BYE ");
-	Sleep(500);
+	Sleep(300);
 				   	printf("BYE ");
-	Sleep(500);
+	Sleep(300);
 				   	printf("PYTHOR ");
-	Sleep(500);
+	Sleep(300);
 				   	printf("USER ");
 	printf("\n\n\n\n\n\n\n\n\n");
 				   
 	
 }
 
-void CommandLine(){
+void commandLine(){
 	int y2 	= MAXBARIS ;
 	gotoxy(0,y2+1); 	printf("=======================================================================================================================\n");
 	gotoxy(0,y2+2); 	printf("Ctrl+S = Save \t ESC = Save & Exit \t ENTER = New Line");

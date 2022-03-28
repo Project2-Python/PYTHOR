@@ -4,8 +4,8 @@
 void menu();
 void gotoxy(int x, int y);
 void documentation();
-void LoadingScreen();
-void ExitScreen();
-void CommandLine();
+void loadingScreen();
+void exitScreen();
+void commandLine();
 
 #endif
