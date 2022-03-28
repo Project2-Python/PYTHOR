@@ -3,8 +3,7 @@
 #include "IOText.h"
 
 int main(){
-		
-		initEditor();
+	
 		//loadingScreen();
 		menu();
 	

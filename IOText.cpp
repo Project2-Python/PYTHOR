@@ -144,6 +144,8 @@ void setCursor(){
 }
 
 void initEditor(){
+ //struct editor E;
+ //struct data D;
  E.destcord.X = 0;
  E.destcord.Y = 0;
  E.baris = 0;

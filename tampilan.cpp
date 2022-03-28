@@ -8,7 +8,7 @@
 
 
 void menu(){
-
+   initEditor();
    char choice;
    
         system("cls");
