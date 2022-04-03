@@ -38,5 +38,7 @@ void initEditor();
 void openFile();
 void keyProsess(char filename[20]);
 void getData(char data[MAXBARIS][MAXKOLOM]);
+int getLastX(int baris);
+int getLastY();
 
 #endif
